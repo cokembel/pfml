@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+	
+	has_attached_file :photo,
+		:styles => {
+			:small => "100x100#",
+	      	:medium => "150x150>"
+    }
+
 	validates :name, :presence => true, :uniqueness => true
 
 	validates :password, :confirmation => true
