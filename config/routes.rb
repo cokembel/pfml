@@ -1,11 +1,12 @@
 Pfml::Application.routes.draw do
-  get "admin/index"
+  get 'admin' => 'admin#index
 
-  get "sessions/new"
 
-  get "sessions/create"
-
-  get "sessions/destroy"
+  controller :session do
+    get 'login' => :new
+    post 'login' => create
+    delete 'logout' => :destroy
+  end
 
   resources :users
 
