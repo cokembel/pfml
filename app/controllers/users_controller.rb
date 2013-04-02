@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+  
+  skip_before_filter :only => [:show, :index, :edit, :update, :destroy]
   # GET /users
   # GET /users.json
   def index
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.json
   def new
+
     @user = User.new
 
     respond_to do |format|
