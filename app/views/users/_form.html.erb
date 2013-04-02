@@ -11,23 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :\ %><br />
-    <%= f.text_field :\ %>
+  <fieldset>
+
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, :size => 40 %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+
+  <div>
+    <%= f.label :password, 'Password' %>:
+    <%= f.password_field :password, :size => 40 %>
   </div>
-  <div class="field">
-    <%= f.label :hashed_password %><br />
-    <%= f.text_field :hashed_password %>
+
+  <div>
+    <%= f.label :password_confirmation, 'Confirm' %>
+    <%= f.password_field :password_confirmation, :size => 40 %>
   </div>
-  <div class="field">
-    <%= f.label :salt %><br />
-    <%= f.text_field :salt %>
-  </div>
-  <div class="actions">
+  
+  <div>
     <%= f.submit %>
   </div>
+
+  </fieldset>
 <% end %>
