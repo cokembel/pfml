@@ -11,9 +11,11 @@
 <% @users.each do |user| %>
   <tr>
     <td><%= user.name %></td>
-    <td><%= link_to 'View', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
+      <td><%= link_to 'View', user %></td>
+      <% if session[:user_id] == user.id %>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
+      <% end %>
   </tr>
 <% end %>
 </table>
@@ -21,5 +23,3 @@
 <br />
 
 <%= link_to 'Log Out', logout_path %>
-
-<%= link_to 'New User', new_user_path %>
