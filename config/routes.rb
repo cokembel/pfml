@@ -1,13 +1,12 @@
 Pfml::Application.routes.draw do
   get 'admin' => 'admin#index'
 
-
-  controller :session do
+  controller :sessions do
     get 'login' => :new
-    post 'login' => create
+    post 'login' => :create
     delete 'logout' => :destroy
   end
-
+  
   resources :users
 
   # The priority is based upon order of creation:
