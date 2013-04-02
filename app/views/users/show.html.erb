@@ -5,6 +5,8 @@
   <%= @user.name %>
 </p>
 
+<%= image_tag @user.photo.url %>
+
 <% if session[:user_id] == @user.id %>
 	<%= link_to 'Edit', edit_user_path(@user) %> |
 <% end %>
