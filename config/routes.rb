@@ -1,5 +1,5 @@
 Pfml::Application.routes.draw do
-  get 'admin' => 'admin#index
+  get 'admin' => 'admin#index'
 
 
   controller :session do
