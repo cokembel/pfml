@@ -1,4 +1,6 @@
 Pfml::Application.routes.draw do
+  resources :prayer_requests
+
   resources :prayers
 
   get 'admin' => 'admin#index'
