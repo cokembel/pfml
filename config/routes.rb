@@ -1,4 +1,6 @@
 Pfml::Application.routes.draw do
+  resources :my_prayer_requests
+
   resources :prayer_requests
 
   resources :prayers
