@@ -1,6 +1,5 @@
 class MyPrayerRequestsController < ApplicationController
 
-  before_filter :authorize
   # GET /my_prayer_requests
   # GET /my_prayer_requests.json
   def index
@@ -12,7 +11,6 @@ class MyPrayerRequestsController < ApplicationController
     end
   end
 
- before_filter :authorize
   # GET /my_prayer_requests/1
   # GET /my_prayer_requests/1.json
   def show
@@ -26,7 +24,6 @@ class MyPrayerRequestsController < ApplicationController
 
   # GET /my_prayer_requests/new
   # GET /my_prayer_requests/new.json
-  before_filter :authorize
   def new
     @my_prayer_request = PrayerRequest.new
 

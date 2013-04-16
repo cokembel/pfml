@@ -15,6 +15,7 @@ Pfml::Application.routes.draw do
   end
 
   get 'index' => 'prayer_requests#index'
+  get 'my_prayer_requests/new' => 'prayer_requests#new'
   
   resources :users
 

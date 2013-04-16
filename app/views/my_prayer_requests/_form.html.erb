@@ -1,5 +1,5 @@
-<%= form_for(@prayer_request) do |f| %>
-  <% if @prayer_request.errors.any? %>
+<%= form_for(@my_prayer_request) do |f| %>
+  <% if @my_prayer_request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@prayer_request.errors.count, "error") %> prohibited this prayer_request from being saved:</h2>
 
