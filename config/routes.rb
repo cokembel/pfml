@@ -13,6 +13,8 @@ Pfml::Application.routes.draw do
     post 'login' => :create
     get 'logout' => :destroy
   end
+
+  get 'index' => 'prayer_requests#index'
   
   resources :users
 
