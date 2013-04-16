@@ -11,9 +11,6 @@
 <% @prayer_requests.each do |prayer_request| %>
   <tr>
     <td><%= prayer_request.content %></td>
-    <td><%= link_to 'Show', prayer_request %></td>
-    <td><%= link_to 'Edit', edit_prayer_request_path(prayer_request) %></td>
-    <td><%= link_to 'Destroy', prayer_request, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
