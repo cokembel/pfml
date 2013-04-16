@@ -9,7 +9,7 @@
 
 <% @my_prayer_requests.each do |my_prayer_request| %>
   <tr>
-    <td><%= prayer_request.content %></td>
+    <td><%= my_prayer_request.content %></td>
     <td><%= link_to 'Show', my_prayer_request %></td>
     <td><%= link_to 'Edit', edit_my_prayer_request_path(my_prayer_request) %></td>
     <td><%= link_to 'Destroy', my_prayer_request, confirm: 'Are you sure?', method: :delete %></td>

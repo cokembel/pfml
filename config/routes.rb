@@ -1,5 +1,4 @@
 Pfml::Application.routes.draw do
-  resources :my_prayer_requests
 
   resources :prayer_requests
 
@@ -7,6 +6,7 @@ Pfml::Application.routes.draw do
 
   get 'admin' => 'admin#index'
   get 'navigation' => 'navigation#index'
+  get 'my_prayer_requests' => 'my_prayer_requests#index'
 
   controller :sessions do
     get 'login' => :new
