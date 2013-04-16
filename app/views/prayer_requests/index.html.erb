@@ -11,6 +11,7 @@
 <% @prayer_requests.each do |prayer_request| %>
   <tr>
     <td><%= prayer_request.content %></td>
+    <td><%= button_to("I'll Pray!", new_prayer_path, :method => :get) %></td>
   </tr>
 <% end %>
 </table>
