@@ -1,8 +1,10 @@
 class MyPrayerRequestsController < ApplicationController
+
+  before_filter :authorize
   # GET /my_prayer_requests
   # GET /my_prayer_requests.json
   def index
-    @my_prayer_requests = MyPrayerRequest.all
+    @my_prayer_requests = PrayerRequest.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,10 +12,11 @@ class MyPrayerRequestsController < ApplicationController
     end
   end
 
+ before_filter :authorize
   # GET /my_prayer_requests/1
   # GET /my_prayer_requests/1.json
   def show
-    @my_prayer_request = MyPrayerRequest.find(params[:id])
+    @my_prayer_request = PrayerRequest.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -23,8 +26,9 @@ class MyPrayerRequestsController < ApplicationController
 
   # GET /my_prayer_requests/new
   # GET /my_prayer_requests/new.json
+  before_filter :authorize
   def new
-    @my_prayer_request = MyPrayerRequest.new
+    @my_prayer_request = PrayerRequest.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +38,13 @@ class MyPrayerRequestsController < ApplicationController
 
   # GET /my_prayer_requests/1/edit
   def edit
-    @my_prayer_request = MyPrayerRequest.find(params[:id])
+    @my_prayer_request = PrayerRequest.find(params[:id])
   end
 
   # POST /my_prayer_requests
   # POST /my_prayer_requests.json
   def create
-    @my_prayer_request = MyPrayerRequest.new(params[:my_prayer_request])
+    @my_prayer_request = PrayerRequest.new(params[:my_prayer_request])
 
     respond_to do |format|
       if @my_prayer_request.save
@@ -56,7 +60,7 @@ class MyPrayerRequestsController < ApplicationController
   # PUT /my_prayer_requests/1
   # PUT /my_prayer_requests/1.json
   def update
-    @my_prayer_request = MyPrayerRequest.find(params[:id])
+    @my_prayer_request = PrayerRequest.find(params[:id])
 
     respond_to do |format|
       if @my_prayer_request.update_attributes(params[:my_prayer_request])
@@ -72,7 +76,7 @@ class MyPrayerRequestsController < ApplicationController
   # DELETE /my_prayer_requests/1
   # DELETE /my_prayer_requests/1.json
   def destroy
-    @my_prayer_request = MyPrayerRequest.find(params[:id])
+    @my_prayer_request = PrayerRequest.find(params[:id])
     @my_prayer_request.destroy
 
     respond_to do |format|

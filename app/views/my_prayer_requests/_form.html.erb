@@ -1,17 +1,20 @@
-<%= form_for(@my_prayer_request) do |f| %>
-  <% if @my_prayer_request.errors.any? %>
+<%= form_for(@prayer_request) do |f| %>
+  <% if @prayer_request.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@my_prayer_request.errors.count, "error") %> prohibited this my_prayer_request from being saved:</h2>
+      <h2><%= pluralize(@prayer_request.errors.count, "error") %> prohibited this prayer_request from being saved:</h2>
 
       <ul>
-      <% @my_prayer_request.errors.full_messages.each do |msg| %>
+      <% @prayer_request.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="actions">
+    <div class="field">
+    <%= f.label :content %> <br />
+    <%= f.text_field :content %>
+  </div>
+  <div class="action">
     <%= f.submit %>
   </div>
 <% end %>

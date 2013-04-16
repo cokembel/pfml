@@ -1,4 +1,7 @@
 class PrayerRequestsController < ApplicationController
+
+  skip_before_filter :authorize
+
   # GET /prayer_requests
   # GET /prayer_requests.json
   def index
