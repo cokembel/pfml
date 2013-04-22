@@ -10,4 +10,9 @@ class ApplicationController < ActionController::Base
   			redirect_to login_path, :notice => "Please log in"
   		end
   	end
+
+  	def getUser
+  		return User.find_by_id(session[:user_id])
+  	end
+
 end
