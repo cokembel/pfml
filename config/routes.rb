@@ -8,6 +8,8 @@ Pfml::Application.routes.draw do
   get 'navigation' => 'navigation#index'
   get 'my_prayer_requests' => 'my_prayer_requests#index'
 
+  post 'prayers/new' => 'prayer_requests#index'
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create

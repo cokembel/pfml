@@ -27,11 +27,8 @@ class PrayersController < ApplicationController
   # GET /prayers/new.json
   def new
     @prayer = Prayer.new
+    @prayer.user = getUser();
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @prayer }
-    end
   end
 
   # GET /prayers/1/edit
