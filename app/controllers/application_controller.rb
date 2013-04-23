@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
   		end
   	end
 
+    def self.getPrayers
+      return Prayer.find(:all)
+    end
+
 end

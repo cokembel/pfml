@@ -11,6 +11,8 @@
 <% @prayer_requests.each do |prayer_request| %>
   <tr>
     <td><%= prayer_request.content %></td>
+    <td><% @prayers = Prayer.where(:prayer_request_id => prayer_request).all %>
+    	<%= @prayers.count %></td>
     <td><%= button_to("I'll Pray!", new_prayer_path(:prayer_request => prayer_request), :method => :post) %></td>
   </tr>
 <% end %>

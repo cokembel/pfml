@@ -28,6 +28,9 @@ class PrayersController < ApplicationController
   def new
     @prayer = Prayer.new
     @prayer.user = getUser();
+    @prayer.prayer_request = params[:prayer_request]
+    @prayer.save
+
 
   end
 
