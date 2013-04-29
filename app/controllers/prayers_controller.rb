@@ -31,7 +31,6 @@ class PrayersController < ApplicationController
     @prayer.prayer_request = params[:prayer_request]
     @prayer.save
 
-
   end
 
   # GET /prayers/1/edit

@@ -1,4 +1,9 @@
-<%= render :template => 'navigation/index' %>
+<% if memberSignedIn?() %>
+  <%= render :template => 'navigation/index' %>
+<% else %>
+  <%= redirect_to root_url %>
+<% end %>
+
 <h3>My Prayer Requests</h3>
 
 <table>
@@ -9,11 +14,13 @@
   </tr>
 
 <% @my_prayer_requests.each do |my_prayer_request| %>
-  <tr>
-    <td><%= my_prayer_request.content %></td>
-    <td><%= link_to 'Show', my_prayer_request %></td>
+  <% if my_prayer_request.user == getUser() %>
+	  <tr>
+	    <td><%= my_prayer_request.content %></td>
+	    <td><%= link_to 'Show', my_prayer_request %></td>
 
-  </tr>
+	  </tr>
+  <% end %>
 <% end %>
 </table>
 
