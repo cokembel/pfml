@@ -16,9 +16,8 @@ Pfml::Application.routes.draw do
     get 'logout' => :destroy
   end
 
-  root :to => 'login'
+  root :to => 'prayer_requests#index'
 
-  #root :to => 'prayer_requests#index'
   get 'index' => 'prayer_requests#index'
   get 'my_prayer_requests/new' => 'prayer_requests#new'
   
