@@ -31,6 +31,8 @@ class PrayersController < ApplicationController
     @prayer.prayer_request = params[:prayer_request]
     @prayer.save
 
+    redirect_to root_url
+
   end
 
   # GET /prayers/1/edit
@@ -41,17 +43,20 @@ class PrayersController < ApplicationController
   # POST /prayers
   # POST /prayers.json
   def create
-    @prayer = Prayer.new(params[:prayer])
-
-    respond_to do |format|
-      if @prayer.save
-        format.html { redirect_to @prayer, notice: 'Prayer was successfully created.' }
-        format.json { render json: @prayer, status: :created, location: @prayer }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @prayer.errors, status: :unprocessable_entity }
-      end
-    end
+    @prayer = Prayer.new
+    @prayer.user = getUser();
+    @prayer.prayer_request = params[:prayer_request]
+    @prayer.save
+#
+ #   respond_to do |format|
+  #    if @prayer.save
+   #     format.html { redirect_to @prayer, notice: 'Prayer was successfully created.' }
+   #     format.json { render json: @prayer, status: :created, location: @prayer }
+   #   else
+   #     format.html { render action: "new" }
+    #    format.json { render json: @prayer.errors, status: :unprocessable_entity }
+    #  end
+   # end
   end
 
   # PUT /prayers/1
