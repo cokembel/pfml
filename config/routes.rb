@@ -1,8 +1,10 @@
 Pfml::Application.routes.draw do
-
   resources :prayer_requests
 
   resources :prayers
+
+    
+  resources :users
 
   get 'admin' => 'admin#index'
   get 'navigation' => 'navigation#index'
@@ -20,8 +22,7 @@ Pfml::Application.routes.draw do
 
   get 'index' => 'prayer_requests#index'
   get 'my_prayer_requests/new' => 'prayer_requests#new'
-  
-  resources :users
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-	Paperclip::Railtie.insert
+	#Paperclip::Railtie.insert
   before_filter :authorize
   protect_from_forgery
 
