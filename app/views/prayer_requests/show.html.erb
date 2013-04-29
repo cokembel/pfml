@@ -1,6 +1,7 @@
-<h1>Prayer Request</h1>
+<h1>Prayer Requests</h1>
 
 <p> <%= @prayer_request.content %></p>
-<p> <%=   @prayer_request.user %></p>
+
 <%= link_to 'Edit', edit_prayer_request_path(@prayer_request) %> |
-<%= link_to 'Back', prayer_requests_path %>
+<%= link_to 'Back', prayer_requests_path %> |
+<%= link_to 'Destroy', @prayer_request, confirm: 'Are you sure?', method: :delete %>

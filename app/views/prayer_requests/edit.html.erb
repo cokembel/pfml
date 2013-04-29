@@ -3,4 +3,5 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @prayer_request %> |
-<%= link_to 'Back', prayer_requests_path %>
+<%= link_to 'Back', prayer_requests_path %> |
+<%= link_to 'Destroy', prayer_request, confirm: 'Are you sure?', method: :delete %>
