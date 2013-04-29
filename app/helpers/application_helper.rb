@@ -12,4 +12,12 @@ module ApplicationHelper
   			end
   		end
   	end
+
+    def memberSignedIn?
+      if User.find_by_id(session[:user_id])
+        true
+      else
+        false
+      end
+    end
 end

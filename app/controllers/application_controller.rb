@@ -31,4 +31,11 @@ class ApplicationController < ActionController::Base
       return Prayer.find(:all)
     end
 
+    def isMember
+      if getUser().name == "Anonymous"
+        false
+      else
+        true
+      end
+    end
 end

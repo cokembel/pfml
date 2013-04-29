@@ -1,4 +1,10 @@
-<%= render :template => 'navigation/public' %>
+
+<% if memberSignedIn?() %>
+  <%= render :template => 'navigation/index' %>
+<% else %>
+  <%= render :template => 'navigation/public' %>
+<% end %>
+
 <h2>Prayer Requests</h2>
 
 <table>
