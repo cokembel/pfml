@@ -21,7 +21,7 @@
     <td><% @prayers = Prayer.where(:prayer_request_id => prayer_request).all %>
     	<%= @prayers.count %></td>
     <td><%= Prayer.count %></td>
-    <td><%= button_to("I'll Pray!", new_prayer_path(:prayer_request_id => prayer_request), :method => :get) %></td>
+    <td><%= button_to("I'll Pray!", new_prayer_path(:prayer_request_id => prayer_request.id), :method => :get) %></td> 
   </tr>
 <% end %>
 </table>

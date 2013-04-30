@@ -19,6 +19,7 @@ Pfml::Application.routes.draw do
   end
 
   get 'prayers/new' => 'prayers#new'
+  post 'prayers/new' => 'prayers#create'
 
   root :to => 'prayer_requests#index'
 

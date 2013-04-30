@@ -43,12 +43,18 @@ class PrayersController < ApplicationController
   # POST /prayers
   # POST /prayers.json
   def create
+   # @prayer = Prayer.new(params[:prayer])
     @prayer = Prayer.new
-   # @prayer.user = getUser();
-    #@prayer.prayer_request = params[:prayer_request_id]
-    #@prayer.save
+    @prayer.user = getUser();
+    if not params[:prayer_request_id]
+       @prayer.prayer_request = 1
+    else 
+       @prayer.prayer_request = params[:prayer_request_id]
+    end
+    @prayer.save
 
-     #redirect_to root_url
+    redirect_to root_url
+
 #
  #   respond_to do |format|
   #    if @prayer.save
