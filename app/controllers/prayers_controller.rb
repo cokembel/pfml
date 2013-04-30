@@ -28,7 +28,7 @@ class PrayersController < ApplicationController
   def new
     @prayer = Prayer.new
     @prayer.user = getUser();
-    @prayer.prayer_request = params[:prayer_request]
+    @prayer.prayer_request = params[:prayer_request_id]
     @prayer.save
 
     redirect_to root_url
@@ -44,9 +44,11 @@ class PrayersController < ApplicationController
   # POST /prayers.json
   def create
     @prayer = Prayer.new
-    @prayer.user = getUser();
-    @prayer.prayer_request = params[:prayer_request]
-    @prayer.save
+   # @prayer.user = getUser();
+    #@prayer.prayer_request = params[:prayer_request_id]
+    #@prayer.save
+
+     #redirect_to root_url
 #
  #   respond_to do |format|
   #    if @prayer.save
