@@ -1,4 +1,3 @@
-
 <% if memberSignedIn?() %>
   <%= render :template => 'navigation/index' %>
 <% else %>
@@ -17,7 +16,6 @@
 <% @prayer_requests.each do |prayer_request| %>
   <tr>
     <td><%= prayer_request.content %></td>
-    <td><%= " - " + prayer_request.user.name %></td>
     <td><% @prayers = Prayer.where(:prayer_request_id => prayer_request).all %>
     	<%= @prayers.count %></td>
     <td><%= Prayer.count %></td>
