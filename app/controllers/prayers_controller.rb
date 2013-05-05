@@ -1,6 +1,7 @@
 class PrayersController < ApplicationController
+  
+  skip_before_filter :authorize, :only => [:new, :create]
 
-  skip_before_filter :authorize
   # GET /prayers
   # GET /prayers.json
   def index
