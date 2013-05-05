@@ -19,7 +19,12 @@
     <td><% @prayers = Prayer.where(:prayer_request_id => prayer_request).all %>
     	<%= @prayers.count %></td>
     <td><%= Prayer.count %></td>
-    <td><%= button_to("I'll Pray!", new_prayer_path(:prayer_request_id => prayer_request.id), :method => :get) %></td> 
+
+    <td><%= form_for(Prayer.new, :url => prayers_path, :methdo => :post ) do |f| %>
+      <%= f.hidden_field :prayer_request_id, :value => prayer_request.id %>
+      <%= f.submit("I Pray") %> 
+      <% end %>
+    </td>
   </tr>
 <% end %>
 </table>

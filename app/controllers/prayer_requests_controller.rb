@@ -27,13 +27,15 @@ class PrayerRequestsController < ApplicationController
   # GET /prayer_requests/new.json
   def new
     @prayer_request = PrayerRequest.new
-    @prayer_request.user = getUser();
-    @prayer_request.save
+    
 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @prayer_request }
     end
+
+    @prayer_request.user = getUser();
+    @prayer_request.save
   end
 
   # GET /prayer_requests/1/edit
