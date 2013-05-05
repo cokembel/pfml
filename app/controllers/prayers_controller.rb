@@ -18,7 +18,7 @@ class PrayersController < ApplicationController
   # GET /prayers/1.json
   def show
     @request = PrayerRequest.find(params[:id])
-    @prayers = Prayer.where("prayer_request_id = ?", @request.id)
+    @prayers = Prayer.where("prayer_request_id = ? AND user_id = ?", @request.id, getUser().id)
     @prayers.each do |prayer| 
       prayer.destroy
     end

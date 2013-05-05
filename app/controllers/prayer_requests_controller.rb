@@ -81,6 +81,11 @@ class PrayerRequestsController < ApplicationController
     @prayer_request = PrayerRequest.find(params[:id])
     @prayer_request.destroy
 
+    @prayers = Prayers.where("prayer_request_id = ?", @prayer_request.id)
+    @prayers.each do |p|
+      p.destroy
+    end
+
     respond_to do |format|
       format.html { redirect_to my_prayer_requests_url }
       format.json { head :no_content }
