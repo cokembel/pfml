@@ -17,7 +17,7 @@
   <% if my_prayer_request.user == getUser() %>
 	  <tr>
 	    <td><%= my_prayer_request.content %></td>
-	    <td><%= link_to 'Show', my_prayer_request %></td>
+	    <td><%= link_to 'Edit', edit_prayer_request_path(my_prayer_request) %></td>
 
 	  </tr>
   <% end %>

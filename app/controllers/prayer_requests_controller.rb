@@ -15,12 +15,14 @@ class PrayerRequestsController < ApplicationController
   # GET /prayer_requests/1
   # GET /prayer_requests/1.json
   def show
-    @prayer_request = PrayerRequest.find(params[:id])
+    destroy()
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @prayer_request }
-    end
+   # @prayer_request = PrayerRequest.find(params[:id])
+
+   # respond_to do |format|
+   #   format.html # show.html.erb
+   #   format.json { render json: @prayer_request }
+   # end
   end
 
   # GET /prayer_requests/new
@@ -48,7 +50,7 @@ class PrayerRequestsController < ApplicationController
 
     respond_to do |format|
       if @prayer_request.save
-        format.html { redirect_to @prayer_request, notice: 'Prayer request was successfully created.' }
+        format.html { redirect_to prayer_requests_path, notice: 'Prayer request was successfully created.' }
         format.json { render json: @prayer_request, status: :created, location: @prayer_request }
       else
         format.html { render action: "new" }
@@ -80,7 +82,7 @@ class PrayerRequestsController < ApplicationController
     @prayer_request.destroy
 
     respond_to do |format|
-      format.html { redirect_to prayer_requests_url }
+      format.html { redirect_to my_prayer_requests_url }
       format.json { head :no_content }
     end
   end
