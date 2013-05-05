@@ -18,11 +18,10 @@
     <td><%= prayer_request.content %></td>
     <td><% @prayers = Prayer.where(:prayer_request_id => prayer_request).all %>
     	<%= @prayers.count %></td>
-    <td><%= Prayer.count %></td>
-
+    <td><%= prayer_request.user.name %></td>
     <td><%= form_for(Prayer.new, :url => prayers_path, :methdo => :post ) do |f| %>
       <%= f.hidden_field :prayer_request_id, :value => prayer_request.id %>
-      <%= f.submit("I Pray") %> 
+      <%= f.submit("I'll Pray") %> 
       <% end %>
     </td>
   </tr>
