@@ -27,11 +27,11 @@ class PrayersController < ApplicationController
   # GET /prayers/new.json
   def new
     @prayer = Prayer.new
-    @prayer.user = getUser();
-    @prayer.prayer_request = params[:prayer_request_id]
-    @prayer.save
 
-    redirect_to root_url
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @prayer }
+    end
 
   end
 
@@ -48,17 +48,6 @@ class PrayersController < ApplicationController
     @prayer.save
 
     redirect_to root_url
-
-#
- #   respond_to do |format|
-  #    if @prayer.save
-   #     format.html { redirect_to @prayer, notice: 'Prayer was successfully created.' }
-   #     format.json { render json: @prayer, status: :created, location: @prayer }
-   #   else
-   #     format.html { render action: "new" }
-    #    format.json { render json: @prayer.errors, status: :unprocessable_entity }
-    #  end
-   # end
   end
 
   # PUT /prayers/1

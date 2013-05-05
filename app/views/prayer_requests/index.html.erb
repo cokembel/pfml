@@ -16,10 +16,11 @@
 <% @prayer_requests.each do |prayer_request| %>
   <tr>
     <td><%= prayer_request.content %></td>
+    <td><%= " -" + prayer_request.user.name %></td>
     <td><% @prayers = Prayer.where(:prayer_request_id => prayer_request).all %>
     	<%= @prayers.count %></td>
-    <td><%= prayer_request.user.name %></td>
-    <td><%= form_for(Prayer.new, :url => prayers_path, :methdo => :post ) do |f| %>
+    
+    <td><%= form_for(Prayer.new, :url => prayers_path, :methd => :post ) do |f| %>
       <%= f.hidden_field :prayer_request_id, :value => prayer_request.id %>
       <%= f.submit("I'll Pray") %> 
       <% end %>
