@@ -25,6 +25,7 @@ Pfml::Application.routes.draw do
 
   get 'index' => 'prayer_requests#index'
   get 'my_prayer_requests/new' => 'prayer_requests#new'
+  delete 'prayer/:id' => 'prayer#delete'
 
 
   # The priority is based upon order of creation:

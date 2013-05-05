@@ -1,12 +1,13 @@
 class PrayersController < ApplicationController
-  
+
   skip_before_filter :authorize, :only => [:new, :create]
 
   # GET /prayers
   # GET /prayers.json
   def index
-    @prayers = Prayer.all
+    @prayers = Prayer.where("user_id = ?", getUser())
 
+    @prayer_requests = PrayerRequest.all        
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @prayers }
@@ -16,12 +17,13 @@ class PrayersController < ApplicationController
   # GET /prayers/1
   # GET /prayers/1.json
   def show
-    @prayer = Prayer.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @prayer }
+    @request = PrayerRequest.find(params[:id])
+    @prayers = Prayer.where("prayer_request_id = ?", @request.id)
+    @prayers.each do |prayer| 
+      prayer.destroy
     end
+
+    redirect_to prayers_path
   end
 
   # GET /prayers/new
@@ -70,8 +72,11 @@ class PrayersController < ApplicationController
   # DELETE /prayers/1
   # DELETE /prayers/1.json
   def destroy
-    @prayer = Prayer.find(params[:id])
-    @prayer.destroy
+    @request = PrayerRequest.find(params[:id])
+    @prayers = Prayer.where("prayer_request_id = ?", @request.id)
+    @prayers.each do |prayer| 
+      prayer.destroy
+    end
 
     respond_to do |format|
       format.html { redirect_to prayers_url }

@@ -8,16 +8,24 @@
     <th></th>
     <th></th>
   </tr>
-
-<% @prayers.each do |prayer| %>
-  <tr>
-    <td><%= link_to 'Show', prayer %></td>
-    <td><%= link_to 'Edit', edit_prayer_path(prayer) %></td>
-    <td><%= link_to 'Destroy', prayer, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+  <% usedIds = Array.new %>
+  <% @prayer_requests.each do |request|
+    @prayers.each do |prayer|
+        if prayer.prayer_request.id == request.id and (not usedIds.include?(request.id))%>
+          <% usedIds << request %>
+        <% end %>
+    <% end %>
+  <% end %>
+  <% @prayer_requests.each do |prayer_request| %>
+    <% if usedIds.include?(prayer_request) %>
+      <tr>
+        <td><%= prayer_request.content %></td>
+        <td><%= '-' + prayer_request.user.name %></td>
+        <td><%= link_to 'Remove', prayer_path(prayer_request), confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+  <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Prayer', new_prayer_path %>
