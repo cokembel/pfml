@@ -1,5 +1,5 @@
 module ApplicationHelper
-	def getUser
+	   def getUser
   		if User.find_by_id(session[:user_id])
   			User.find_by_id(session[:user_id])
   		else
@@ -20,4 +20,9 @@ module ApplicationHelper
         false
       end
     end
+
+    def joke
+      Joke.find(:one, :from => "/jokes/random")
+    end
+
 end

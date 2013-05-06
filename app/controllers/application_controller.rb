@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 	#Paperclip::Railtie.insert
-  before_filter :authorize
+  before_filter :authorize, :joke
   protect_from_forgery
 
   protected
@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
   			redirect_to login_path, :notice => "Please log in"
   		end
   	end
+
+    def joke
+      Joke.find(:one, :from => "/jokes/random")
+    end
 
     helper_method :getUser
 
